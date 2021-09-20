@@ -7,6 +7,7 @@ public interface BioskopService {
     void addBioskop(BioskopModel bioskop);
     void deleteBioskop(BioskopModel bioskop);
     void updateBioskop(BioskopModel bioskop, int jumlahStudio);
+    List<BioskopModel> getBioskopByJS(int jumlahStudio);
 
     //Method untuk mendapatkan daftar Bioskop yang telah tersimpan
     List<BioskopModel> getBioskopList();

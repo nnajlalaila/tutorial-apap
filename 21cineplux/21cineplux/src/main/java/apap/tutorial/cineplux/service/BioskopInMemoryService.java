@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 public class BioskopInMemoryService implements BioskopService {
     private List<BioskopModel> listBioskop;
+    private List<BioskopModel> listBioskop2 = new ArrayList<>();
 
     // Constructor
     public BioskopInMemoryService() {
@@ -45,5 +46,16 @@ public class BioskopInMemoryService implements BioskopService {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<BioskopModel> getBioskopByJS(int jumlahStudio) {
+
+        for (BioskopModel bioskop : listBioskop) {
+            if (bioskop.getJumlahStudio() == jumlahStudio){
+                listBioskop2.add(bioskop) ;
+            }
+        }
+        return listBioskop2;
     }
 }

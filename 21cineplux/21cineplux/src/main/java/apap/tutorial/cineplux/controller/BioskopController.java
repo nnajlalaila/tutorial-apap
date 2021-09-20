@@ -126,8 +126,20 @@ public class BioskopController {
 
 
 
+    }
 
+    @RequestMapping("/bioskop/viewall/jumlah-studio/{jumlahStudio}")
+    public String listBioskopJS(
+        @PathVariable  int jumlahStudio,
+        Model model
+    ){
 
+            List<BioskopModel> listBioskop = bioskopService.getBioskopByJS(jumlahStudio);
+
+            //Add variable semua BioskopModel ke "listBioskop" untuk dirender dalam thymeleaf
+            model.addAttribute("listBioskop", listBioskop);
+
+            return "viewall-bioskop";
     }
 
 }
