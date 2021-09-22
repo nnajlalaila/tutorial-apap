@@ -2,7 +2,6 @@ package apap.tutorial.cineplux.service;
 
 import apap.tutorial.cineplux.model.BioskopModel;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +20,16 @@ public class BioskopInMemoryService implements BioskopService {
     }
 
     @Override
-    public void updateBioskop(BioskopModel bioskop, int jumlahStudio) {
-        bioskop.setJumlahStudio(jumlahStudio);
+    public void updateBioskop(BioskopModel bioskop) {
+
     }
 
 
-    @Override
-    public void deleteBioskop(BioskopModel bioskop) {
-        listBioskop.remove(bioskop);
-    }
+
+//    @Override
+//    public void deleteBioskop(BioskopModel bioskop) {
+//        listBioskop.remove(bioskop);
+//    }
 
     @Override
     public List<BioskopModel> getBioskopList() {
@@ -37,13 +37,18 @@ public class BioskopInMemoryService implements BioskopService {
     }
 
     @Override
-    public BioskopModel getBioskopByIdBioskop(String idBioskop) {
-
-        for (BioskopModel bioskop : listBioskop) {
-            if (bioskop.getIdBioskop().equals(idBioskop)){
-                return bioskop;
-            }
-        }
+    public BioskopModel getBioskopByNoBioskop(Long noBioskop) {
         return null;
     }
+
+//    @Override
+//    public BioskopModel getBioskopByIdBioskop(String idBioskop) {
+//
+//        for (BioskopModel bioskop : listBioskop) {
+//            if (bioskop.getIdBioskop().equals(idBioskop)){
+//                return bioskop;
+//            }
+//        }
+//        return null;
+//    }
 }
