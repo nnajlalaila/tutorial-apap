@@ -47,3 +47,40 @@ menggunakan @RequestParam atau @PathVariable?**
 - [ ] Penggunaan @RequestParam @PathVariable
 - [ ] Tidak mengerti package yang diimport di controller
 
+## Tutorial 2
+
+**Pertanyaan 1: Cobalah untuk menambahkan sebuah Bioskop dengan mengakses link berikut: http://localhost:8080/bioskop/add?idBioskop=1&namaBioskop=Bioskop%20PAPA%20APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx&jumlahStudio=10 Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi**
+
+Terjadi error Whitelabel Error Page dengan status 500 karena belum ada template yang dituju yaitu add-bioskop.html
+![](https://i.ibb.co/bX3SVJW/image.png)
+
+**Pertanyaan 2: Menurut kamu anotasi @Autowired pada class Controller tersebut merupakan implementasi dari konsep apa? Dan jelaskan secara singkat cara kerja @Autowired tersebut dalam konteks service dan controller yang telah kamu buat**
+
+Anotasi @Autowired pada kelas Controller adalah implementasi dari konsep depedency injection. Dengan menggunakan 
+@Autowired memungkinkan kita memasukkan depedensi objek secara implisit, sehingga tidak perlu membuat
+setter, getter, atau constructor.
+
+**Pertanyaan 3: Cobalah untuk menambahkan sebuah Bioskop dengan mengakses link berikut: http://localhost:8080/bioskop/add?idBioskop=1&namaBioskop=Bioskop%20PAPA%20 APAP&alamat=Maung%20Fasilkom&noTelepon=081xxx Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.**
+Terjadi error Whitelabel Error Page dengan status 400 karena link yang dimasukkan tidak lengkap. Alamat tersebut tidak mencantumkan jumlahStudio. 
+![](https://i.ibb.co/JFK2m7v/image.png)
+
+**Pertanyaan 4: Jika Papa APAP ingin melihat Bioskop dengan nama Bioskop Maung, link apa yang harus diakses?**
+
+Pertama saya melakukan add bioskop maung dengan idBioskop 4:
+http://localhost:8080/bioskop/add?idBioskop=4&namaBioskop=Bioskop%20MAUNG&alamat=Maung%20Fasilkom&noTelepon=081xxx&jumlahStudio=10
+![](https://i.ibb.co/02czvtX/image.png)
+Setelah itu saya mengakses http://localhost:8080/bioskop/view?idBioskop=4 untuk menampilkan detail dari Bioskop Maung 
+![](https://i.ibb.co/R0GVrWP/image.png)
+
+
+**Pertanyaan 5: Tambahkan 1 contoh Bioskop lainnya sesukamu. Lalu cobalah untuk mengakses http://localhost:8080/bioskop/viewall , apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.**
+
+Saya menambahkan Bioskop XXXI dengan id 8 
+Setelah melakukan view all melalui http://localhost:8080/bioskop/viewall berikut merupakan tampilan yang muncul. Terdapat Bioskop dengan id 1, bioskop dengan id 4, dan bioskop dengan id 8.
+![](https://i.ibb.co/ZfYbpkz/tut2apap.jpg)
+![](https://i.ibb.co/fMj2Zwz/tut2apaplagi.jpg)
+
+
+
+
+
