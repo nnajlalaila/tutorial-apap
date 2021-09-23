@@ -3,6 +3,7 @@ import apap.tutorial.cineplux.model.BioskopModel;
 import apap.tutorial.cineplux.model.PenjagaModel;
 import apap.tutorial.cineplux.service.BioskopService;
 import apap.tutorial.cineplux.service.PenjagaService;
+import apap.tutorial.cineplux.service.PenjagaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -41,5 +42,58 @@ public class PenjagaController {
         model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
         model.addAttribute("namaPenjaga", penjaga.getNamaPenjaga());
         return "add-penjaga";
+    }
+
+    @GetMapping("/penjaga/update/{no_penjaga}")
+    public String updatePenjagaForm(
+            @PathVariable Long no_penjaga,
+            Model model
+    ){
+        PenjagaModel penjaga = penjagaService.getPenjangaByNoPenjaga(no_penjaga);
+        if (penjaga != null){
+            model.addAttribute( "penjaga", penjaga);
+            return"form-update-penjaga" ;
+        } else {
+            model.addAttribute( "nopenjaga", no_penjaga);
+            return "no-penjaga-not-found";
+        }
+
+    }
+
+    @PostMapping("/penjaga/update")
+    public String updatePenjagaSubmit(
+            @ModelAttribute PenjagaModel penjaga,
+            Model model
+    ) {
+
+        if (penjagaService.updatePenjaga(penjaga)) {
+            model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
+            model.addAttribute("nopenjaga", penjaga.getNopenjaga());
+            return "update-penjaga";
+        } else {
+            model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
+            return "bioskop-buka";
+        }
+    }
+
+    @GetMapping("/penjaga/delete/{no_penjaga}")
+    public String deletePenjagaForm(
+            @PathVariable Long no_penjaga,
+            Model model
+    ){
+        PenjagaModel penjaga = penjagaService.getPenjangaByNoPenjaga(no_penjaga);
+        if (penjaga != null){
+            if(penjagaService.deletePenjaga(penjaga)){
+                model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
+                model.addAttribute("nopenjaga", penjaga.getNopenjaga());
+                return"delete-penjaga" ;
+            } else {
+                model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
+                return"bioskop-buka" ;
+            }
+        } else {
+            model.addAttribute("nopenjaga", no_penjaga);
+            return "no-penjaga-not-found";
+        }
     }
 }

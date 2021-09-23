@@ -18,48 +18,44 @@ import java.util.List;
 @NoArgsConstructor
 @Setter @Getter
 @Entity
-@Table(name="bioskop")
-
-public class BioskopModel implements Serializable{
+@Table(name = "bioskop")
+public class BioskopModel implements Serializable {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long noBioskop;
 
     @NotNull
-    @Size(max=30)
-    @Column(nullable=false)
+    @Size(max = 30)
+    @Column(nullable = false)
     private String namaBioskop;
 
     @NotNull
-    @Size(max=50)
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String alamatBioskop;
 
     @NotNull
-    @Column(nullable=false)
-    private int jumlahStudio;
+    @Column(nullable = false)
+    private Integer jumlahStudio;
 
     @NotNull
-    @Column(nullable=false)
-    @DateTimeFormat(pattern="HH:mm")
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime waktuBuka;
 
     @NotNull
-    @Column(nullable=false)
-    @DateTimeFormat(pattern="HH:mm")
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime waktuTutup;
 
-    //Relasi dengan penjagaModel
-    @OneToMany(mappedBy = "bioskop", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "bioskop", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<PenjagaModel> listPenjaga;
 
-    //Relasi dengan FilmModel
     @ManyToMany
     @JoinTable(
-            name = "film bioskop",
-            joinColumns = @JoinColumn(name="no_bioskop"),
-            inverseJoinColumns = @JoinColumn(name="no_film"))
-
+            name = "film_bioskop",
+            joinColumns = @JoinColumn(name = "no_bioskop"),
+            inverseJoinColumns = @JoinColumn(name = "no_film")
+    )
     List<FilmModel> listFilm;
 }

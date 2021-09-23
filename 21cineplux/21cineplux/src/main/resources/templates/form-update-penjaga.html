@@ -12,29 +12,22 @@
     <div class="card m-4 p-4">
         <div class="card-body">
             <div class="justify-content-center">
-                <h2>Update Bioskop</h2>
+                <h2>Update Penjaga</h2>
                 <br>
-                <form th:action="@{/bioskop/update}" th:object="${bioskop}" method="POST">
-                    <input type="hidden" th:field="*{noBioskop}" />
+                <form th:action="@{/penjaga/update}" th:object="${penjaga}" method="POST">
+                    <input type="hidden" th:field="*{bioskop}" />
+                    <input type="hidden" th:field="*{nopenjaga}" />
 
-                    Nama Bioskop : <br>
-                    <input required class="form-control" type="text" name="namaBioskop" th:value="*{namaBioskop}" />
+                    Nama Penjaga : <br>
+                    <input required class="form-control" type="text" name="namaPenjaga" th:value="*{namaPenjaga}" />
                     <br><br>
 
-                    Alamat Bioskop: <br>
-                    <input required class="form-control" type="text" name="alamatBioskop" th:value="*{alamatBioskop}" />
-                    <br><br>
+                    Jenis Kelamin: <br>
+                    <select name="jenisKelamin" th:field="*{jenisKelamin}">
+                    <option value="0">Perempuan</option>
+                    <option value="1">Laki-laki</option>
+                    </select>
 
-                    Jumlah Studio : <br>
-                    <input required min="0" class="form-control" type="number" name="jumlahStudio" th:value="*{jumlahStudio}" />
-                    <br><br>
-
-                    Waktu Buka : <br>
-                    <input required class="form-control" type="time" name="waktuBuka" th:value="*{waktuBuka}" />
-                    <br><br>
-
-                    Waktu Tutup : <br>
-                    <input required class="form-control" type="time" name="waktuTutup" th:value="*{waktuTutup}" />
                     <br><br>
 
                     <button class="btn btn-primary" type="submit">Submit</button>

@@ -24,6 +24,10 @@ public class BioskopInMemoryService implements BioskopService {
 
     }
 
+    @Override
+    public boolean deleteBioskop(BioskopModel bioskop) {
+        return false;
+    }
 
 
 //    @Override

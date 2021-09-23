@@ -38,7 +38,7 @@ public class BioskopController {
     @GetMapping("/bioskop/viewall")
     public String listBioskop(Model model) {
         List<BioskopModel> listBioskop = bioskopService.getBioskopList();
-        model.addAttribute ( "ListBioskop",listBioskop);
+        model.addAttribute ( "listBioskop",listBioskop);
         return "viewall-bioskop" ;
     }
 
@@ -48,12 +48,18 @@ public class BioskopController {
             Model model
     ) {
         BioskopModel bioskop = bioskopService.getBioskopByNoBioskop(noBioskop);
-        List<PenjagaModel> listPenjaga = bioskop.getListPenjaga();
+        if (bioskop != null){
+            List<PenjagaModel> listPenjaga = bioskop.getListPenjaga();
+            model.addAttribute( "bioskop", bioskop);
+            model.addAttribute("listPenjaga", listPenjaga);
+            return "view-bioskop";
+        } else {
+            model.addAttribute( "noBioskop", noBioskop);
+            return "bioskop-not-found";
+        }
 
-        model.addAttribute( "bioskop", bioskop);
-        model.addAttribute("listPenjaga", listPenjaga);
 
-        return "view-bioskop";
+
     }
 
     @GetMapping("/bioskop/update/{noBioskop}")
@@ -62,8 +68,14 @@ public class BioskopController {
             Model model
     ){
         BioskopModel bioskop = bioskopService.getBioskopByNoBioskop(noBioskop);
-        model.addAttribute( "bioskop",bioskop);
-        return"form-update-bioskop" ;
+        if (bioskop != null){
+            model.addAttribute( "bioskop", bioskop);
+            return"form-update-bioskop" ;
+        } else {
+            model.addAttribute( "noBioskop", noBioskop);
+            return "bioskop-not-found";
+        }
+
     }
 
     @PostMapping("/bioskop/update")
@@ -74,5 +86,38 @@ public class BioskopController {
         bioskopService.updateBioskop(bioskop);
         model.addAttribute( "noBioskop",bioskop.getNoBioskop());
         return "update-bioskop";
+    }
+
+    @GetMapping("/bioskop/delete/{noBioskop}")
+    public String deleteBioskopForm(
+            @PathVariable Long noBioskop,
+            Model model
+    ){
+        BioskopModel bioskop = bioskopService.getBioskopByNoBioskop(noBioskop);
+        if (bioskop != null){
+            if(bioskop.getListPenjaga().size() == 0 && bioskopService.deleteBioskop(bioskop)){
+                model.addAttribute("noBioskop",bioskop.getNoBioskop());
+                return "delete-bioskop";
+            }
+
+            else if (bioskop.getListPenjaga().size() == 0 && !bioskopService.deleteBioskop(bioskop)){
+                model.addAttribute("noBioskop",bioskop.getNoBioskop());
+                return "bioskop-buka" ;
+            }
+
+            else if (bioskop.getListPenjaga().size() != 0 && bioskopService.deleteBioskop(bioskop)){
+                model.addAttribute("noBioskop",bioskop.getNoBioskop());
+                return "penjaga-masih" ;
+            }
+
+            else {
+                model.addAttribute("noBioskop",bioskop.getNoBioskop());
+                return "buka-dan-masih" ;
+            }
+
+        } else {
+            model.addAttribute( "noBioskop", noBioskop);
+            return "delete-id-not-found";
+        }
     }
 }

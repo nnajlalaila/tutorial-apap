@@ -5,6 +5,7 @@ import java.util.List;
 public interface BioskopService {
     void addBioskop(BioskopModel bioskop);
     void updateBioskop(BioskopModel bioskop);
+    boolean deleteBioskop(BioskopModel bioskop);
     List<BioskopModel> getBioskopList();
     BioskopModel getBioskopByNoBioskop(Long noBioskop);
 }
