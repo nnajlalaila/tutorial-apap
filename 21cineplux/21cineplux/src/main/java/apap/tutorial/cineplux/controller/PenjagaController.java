@@ -25,7 +25,7 @@ public class PenjagaController {
     BioskopService bioskopService;
 
     @GetMapping("penjaga/add/{noBioskop}")
-    public String addPenjagaForm( @PathVariable Long noBioskop, Model model) {
+    public String addPenjagaForm(@PathVariable Long noBioskop, Model model) {
         PenjagaModel penjaga = new PenjagaModel();
         BioskopModel bioskop = bioskopService.getBioskopByNoBioskop(noBioskop);
         penjaga.setBioskop(bioskop);
@@ -37,7 +37,7 @@ public class PenjagaController {
     public String addPenjagasubmit(
             @ModelAttribute PenjagaModel penjaga,
             Model model
-    ){
+    ) {
         penjagaService.addPenjaga(penjaga);
         model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
         model.addAttribute("namaPenjaga", penjaga.getNamaPenjaga());
@@ -48,13 +48,13 @@ public class PenjagaController {
     public String updatePenjagaForm(
             @PathVariable Long no_penjaga,
             Model model
-    ){
+    ) {
         PenjagaModel penjaga = penjagaService.getPenjangaByNoPenjaga(no_penjaga);
-        if (penjaga != null){
-            model.addAttribute( "penjaga", penjaga);
-            return"form-update-penjaga" ;
+        if (penjaga != null) {
+            model.addAttribute("penjaga", penjaga);
+            return "form-update-penjaga";
         } else {
-            model.addAttribute( "nopenjaga", no_penjaga);
+            model.addAttribute("nopenjaga", no_penjaga);
             return "no-penjaga-not-found";
         }
 
@@ -65,10 +65,10 @@ public class PenjagaController {
             @ModelAttribute PenjagaModel penjaga,
             Model model
     ) {
-
         if (penjagaService.updatePenjaga(penjaga)) {
             model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
             model.addAttribute("nopenjaga", penjaga.getNopenjaga());
+
             return "update-penjaga";
         } else {
             model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
@@ -76,24 +76,41 @@ public class PenjagaController {
         }
     }
 
-    @GetMapping("/penjaga/delete/{no_penjaga}")
-    public String deletePenjagaForm(
-            @PathVariable Long no_penjaga,
+//    @PostMapping("/penjaga/delete")
+//    public String deletePenjagaForm(
+//            Model model
+//    ){
+    //PenjagaModel penjaga = penjagaService.getPenjangaByNoPenjaga(no_penjaga);
+//        if (penjaga != null){
+//            if(penjagaService.deletePenjaga(penjaga)){
+//                model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
+//                model.addAttribute("nopenjaga", penjaga.getNopenjaga());
+//                return"delete-penjaga" ;
+//            } else {
+//                model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
+//                return"bioskop-buka" ;
+//            }
+//        } else {
+//            model.addAttribute("nopenjaga", no_penjaga);
+//            return "no-penjaga-not-found";
+//        }
+//    }
+
+    @PostMapping("/penjaga/delete")
+    public String deletePenjagasubmit(
+            @ModelAttribute BioskopModel bioskop,
             Model model
-    ){
-        PenjagaModel penjaga = penjagaService.getPenjangaByNoPenjaga(no_penjaga);
-        if (penjaga != null){
-            if(penjagaService.deletePenjaga(penjaga)){
-                model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
-                model.addAttribute("nopenjaga", penjaga.getNopenjaga());
-                return"delete-penjaga" ;
-            } else {
-                model.addAttribute("noBioskop", penjaga.getBioskop().getNoBioskop());
-                return"bioskop-buka" ;
+    ) {
+
+        model.addAttribute("noBioskop",  bioskop.getNoBioskop());
+        for (PenjagaModel penjaga : bioskop.getListPenjaga()) {
+
+            if (!penjagaService.deletePenjaga(penjaga)) {
+                return "bioskop-buka";
             }
-        } else {
-            model.addAttribute("nopenjaga", no_penjaga);
-            return "no-penjaga-not-found";
         }
+        return "delete-penjaga";
     }
+
+
 }

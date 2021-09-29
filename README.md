@@ -1,6 +1,37 @@
 # Tutorial APAP
 ## Authors
 * **Najla Laila Muharram** - *1906399612* - *C*
+
+---
+## Tutorial 4
+**1. Jelaskan perbedaan th:include dan th:replace!**
+
+**th:include** akan memasukkan spesifik fragment sebagai body dari host tag nya namun tidak termasuk fragment tag nya.  Ini juga akan menyisipkan fragmen yang ditentukan sebagai body dari tag hostnya tetapi mengecualikan tag fragmen.
+
+**th:replace** akan menghapus dan menggantikan host tag dengan konten fragment yang spesifik termasuk fragment tagnya. Dengan kata lain, ini akan menghapus host tag  dan sebagai gantinya host tag itu akan menambahkan fragmen yang ditentukan termasuk tag fragmen.
+
+
+**2. Jelaskan apa fungsi dari th:object!**
+th:object digunakan untuk menspesifikan object yang dibuat saat submit form.
+Value dari th:object harus spesifik hanya nama dari model attribute yang dimaksud. Seperti  contohnya hanya bisa ${bioskop} bukan ${bioskop.listFilm}.
+Jika pada form sudah dispesifikan pada satu objek maka tidak ada th:object lain
+yang dapat dispesifikkan. Ini mengartikan bahwa HTML form tidak dapat iteratif. Dengan kata lain, th:object mereferensikan Model yang akan merepresentasikan state dari form yang dibuat.
+
+
+**3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?**
+
+*= akan mengevaluasi atribut atau variabel dari th:object yang sudah di deklarasi sebelumnya. Merujuk pada data yang berada pada object yang sudah didefinisikan sebelumnya pada th:object.
+
+$= akan mengevaluasi keseluruhan atribut atau variabel pada th:object digunakan saat ingin merujuk pada objek yang didapat dari model.addAttribute pada Controller.
+
+
+Referensi :
+-[difference-between-thymeleaf-attribute](https://anshulgnit.blogspot.com/2018/05/differencebetween-thymeleaf-attribute-replace-insert-and-include.html)
+- [thymeleaf-fragments](https://attacomsian.com/blog/thymeleaf-fragments)
+- [Baeldug - thymeleaf-in-spring-mvc](https://www.baeldung.com/thymeleaf-in-spring-mvc)
+
+
+
 ---
 ## Tutorial 3
 1.Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model
@@ -36,6 +67,7 @@ https://projectlombok.org/features/GetterSetter
 https://projectlombok.org/features/constructor
 https://www.objectdb.com/api/java/jpa/JoinColumn/referencedColumnName
 https://www.baeldung.com/hibernate-lazy-eager-loading
+
 ---
 ## Tutorial 2
 
