@@ -62,6 +62,9 @@ public class BioskopController {
             List<PenjagaModel> listPenjaga = bioskop.getListPenjaga();
             model.addAttribute( "bioskop", bioskop);
             model.addAttribute("listPenjaga", listPenjaga);
+            model.addAttribute("listFilm", bioskop.getListFilm());
+
+
             return "view-bioskop";
         } else {
             model.addAttribute( "noBioskop", noBioskop);
