@@ -52,5 +52,9 @@
         </form>
     </div>
 </nav>
+<footer th:fragment="footer(myvariable)" class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+<!--    <a class="text-reset fw-bold" th:href="@{/}" th:classappend="${#httpServletRequest.getRequestURI() == '/' ? HOME ':''}" > INI </a>-->
+    <p th:text="${myvariable}"></p>
+</footer>
 </body>
 </html>
