@@ -55,7 +55,7 @@ public class PenjagaRestServiceImpl implements PenjagaRestService{
             } else {
                 throw new UnsupportedOperationException("Bioskop still open!");
             }
-            
+
 
     }
 
