@@ -1,4 +1,5 @@
 package apap.tutorial.cineplux.service;
+import apap.tutorial.cineplux.model.BioskopModel;
 import apap.tutorial.cineplux.model.PenjagaModel;
 import apap.tutorial.cineplux.repository.PenjagaDB;
 import apap.tutorial.cineplux.rest.BioskopDetail;
@@ -91,5 +92,18 @@ public class PenjagaRestServiceImpl implements PenjagaRestService{
         }
     }
 
+
+    @Override
+    public List<PenjagaModel> getAllPenjagaByGender(String jenisKelamin) {
+        Integer gender = 1;
+        if (jenisKelamin.equals("Laki-laki")){
+            gender = 0;
+        }
+
+        else if (jenisKelamin.equals("Perempuan")){
+            gender =1;
+        }
+        return penjagaDB.findAllByJenisKelamin(gender);
+    }
 
 }

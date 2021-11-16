@@ -89,4 +89,8 @@ public class PenjagaRestController {
         return penjagaRestService.retrieveListPenjaga();
     }
 
+    @GetMapping(value="/penjaga/jenisKelamin/{jenisKelamin}")
+    private List<PenjagaModel> getAllPenjagaByGender(@PathVariable("jenisKelamin") String jenisKelamin){
+            return penjagaRestService.getAllPenjagaByGender(jenisKelamin);
+    }
 }

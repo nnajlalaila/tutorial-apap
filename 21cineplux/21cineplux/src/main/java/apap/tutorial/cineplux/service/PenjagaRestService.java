@@ -16,4 +16,6 @@ public interface PenjagaRestService {
         void deletePenjaga(Long noPenjaga);
 
         PenjagaModel jsonGetUmur (Long noPenjaga);
+
+        List<PenjagaModel> getAllPenjagaByGender (String jenisKelamin);
 }
