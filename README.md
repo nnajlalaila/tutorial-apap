@@ -4,6 +4,57 @@
 
 ---
 ## Tutorial 5
+
+**1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi?**
+
+Otentikasi adalah verifikasi apakah seseorang itu adalah orang yang berhak.atau tidak untuk mengakses suatu fitur. Sedangkan,  otorisasi adalah pencarian apakah orang yang sudah diidentifikasi (sebelumnya sudah terlebih dahulu di otentifikasi), mempunyai akses untuk memanipulasi sumber daya tertentu.
+
+Contoh otentikasi :
+
+`@Autowired
+public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception{
+auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
+}`
+
+Contoh Otorisasi :
+`http.authorizeRequests()
+http.antMatchers("/css/**").permitAll()
+http.antMatchers("/js/**").permitAll()
+http.antMatchers("/user/viewall").hasAuthority("ADMIN")
+http.antMatchers("/user/add").hasAuthority("ADMIN")
+http.antMatchers("/user/delete").hasAuthority("ADMIN")
+http.antMatchers("/penjaga/**").hasAuthority("MANAGER")`
+
+
+**2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya.**
+
+BCryptPasswordEncoder merupakan salah satu fungsi password hashing. BCryptPasswordEncoder  melakukan encrypt terhadap password yang dimasukkan oleh user. Cara kerjanya BCryptPasswordEncoder adalah  dengan melakukan encrypt password setelah user melakukan  klik 'save' sehingga password yang terlihat pada database adalah password yang sudah dienkripsi.
+
+**3. Apakah penyimpanan password sebaiknya menggunakan encryption atau hashing? Mengapa demikian?**
+   
+Menurut saya penyimpanan password akan lebih aman jika dilakukan dengan hashing daripada encryption.Hal ini dikarenakan pada proses encryption password diubah menjadi pesan yang tidak mudah dibaca atau yang biasa dikenal dengan ciphertext.Ciphertext yang diperoleh dari encryption dapat dengan mudah diubah menjadi plaintext menggunakan encryption key.
+
+**4. Jelaskan secara singkat apa itu UUID beserta penggunaannya!**
+   
+UUID adalah kumpulan 32 karakter (String) yang dibuat secara acak (random) dengan teknik khusus yang dijamin unik untuk setiap data. Kegunaan UUID adalah sebagai primary key dari model tersebut. UUID digunakan untuk memungkinkan sistem mengenerate id pengguna secara unik dengan hashing sebanyak 32 karakter secara acak yang bertujuan untuk meningkatkan keamanan data pengguna sehingga id pengguna aman dan tidak mudah untuk diretas. Mirip seperti BCrypt, bedanya kali ini adalah ID, bukan password. Saat kita membuat user baru, sistem akan otomatis melakukan pemberian kode unik yang akan terlihat pada database dengan tipe UUID.
+
+Pada tutorial ini, UUID digunakan di UserModel.java:
+`@Id
+@GeneratedValue(generator = "system-uuid")
+@GenericGenerator(name="system-uuid", strategy = "uuid")
+private String id;
+`
+
+**5. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut padahal kita sudah memiliki class UserRoleServiceImpl.java?**
+
+UserDetailsServiceImpl.java berbeda dengan UserRoleServiceImpl.java. UserDetailsServiceImpl.java memiliki fungsi untuk melakukan implements interface. Sedangkan, UserDetailsService sudah digenerate oleh springboot untuk digunakan dalam mendapatkan user-related data. Class UserDetailsServiceImpl.java mengimplementasi interface UserDetailService yang sudah disediakan oleh spring security. Class tersebut berguna untuk mengambil informasi otentikasi dan otorisasi pengguna. Tujuannya agar Spring Boot Security dapat melakukan otorisasi terhadap pengguna yang melakukan login sesuai dengan rolenya yang sudah terdaftar di database. Class ini harus ada karena class UserServiceImpl dan RoleServiceImpl tidak dapat memberikan informasi kepada Spring boot mengenai otentikasi dan otorisasi dari akun-akun yang ada pada database sistem.
+
+Sumber :
+https://www.yiiframework.com/doc/guide/1.1/id/topics.auth
+https://id-laravel.com/post/menggunakan-uuid-di-php-laravel/
+
+---
+## Tutorial 5
 **1. Apa itu Postman? Apa kegunaannya?**
 
 Postman adalah sebuah aplikasi yang berfungsi sebagai REST CLIENT untuk uji coba REST API. Postman biasanya digunakan untuk melakukan build, test, dan modify API. Postman biasa digunakan oleh developer pembuat API sebagai tools untuk menguji API yang telah mereka buat. Dengan Postman, kita sebagai developer dapat mendokumentasikan, tes, mendesain, melakukan debug, menerbitkan, dan memonitor API pada satu tempat. Developer tidak harus menulis HTTP client network code, tetapi membuat test suites yang dinamakan "Collections" ketika menggunakan Postman untuk melakukan testing. Postman akan berinteraksi dengan API secara otomatis.
@@ -28,9 +79,13 @@ Postman adalah sebuah aplikasi yang berfungsi sebagai REST CLIENT untuk uji coba
 Sumber:
 https://antares.id/id/postman.html#:~:text=Postman%20adalah%20sebuah%20aplikasi%20yang,API%20yang%20telah%20mereka%20buat.
 https://medium.com/@novancimol12/postman-4f181d625fe1
+
 Jackson Annotations - @JsonIgnoreProperties (tutorialspoint.com)
+
 WebClient Class (System.Net) | Microsoft Docs
+
 How to ignore unknown properties while parsing JSON in Java - Jackson @JsonIgnoreProperties Annotation Example - Java Code Geeks - 2021
+
 Using Spring ResponseEntity to Manipulate the HTTP Response | Baeldung
 
 
