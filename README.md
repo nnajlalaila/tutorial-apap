@@ -3,6 +3,39 @@
 * **Najla Laila Muharram** - *1906399612* - *C*
 
 ---
+## Tutorial 5
+**1. Apa itu Postman? Apa kegunaannya?**
+
+Postman adalah sebuah aplikasi yang berfungsi sebagai REST CLIENT untuk uji coba REST API. Postman biasanya digunakan untuk melakukan build, test, dan modify API. Postman biasa digunakan oleh developer pembuat API sebagai tools untuk menguji API yang telah mereka buat. Dengan Postman, kita sebagai developer dapat mendokumentasikan, tes, mendesain, melakukan debug, menerbitkan, dan memonitor API pada satu tempat. Developer tidak harus menulis HTTP client network code, tetapi membuat test suites yang dinamakan "Collections" ketika menggunakan Postman untuk melakukan testing. Postman akan berinteraksi dengan API secara otomatis.
+
+**2. Jelaskan fungsi dari anotasi @JsonIgnoreProperties dan @JsonProperty.**
+
+@JsonIgnoreProperties berfungsi untuk memberikan perintah pada class untuk mengabaikan properti logis yang ditentukan dalam serialisasi dan deserialisasi JSON. Dengan begitu jika suatu saat ada field baru yang dimasukkan di JSON yang merepresentasikan Model kita, maka JSON tidak akan throw UnrecognizedPropertyException saat parsing JSON di Java. Sebagai contoh, ketika kita memberikan true untuk element ignoreUnknown, maka field JSON akan diabaikan jika data JSON memiliki field yang tidak mempunyai properti logis.
+
+@JsonProperty merupakan anotasi yang memiliki fungsi untuk mengubah nama variabel. @JsonProperty memberitahu Jackson ObjectMapper untuk memetakan nama property JSON ke nama bidang Java yang diberikan anotasi. @JsonProperty diartikan sebagai logical property yang digunakan di serialization dan deserialization di JSON. saat kita melakukan set JSON data pada Java Object, akan disebut JSON deseralization dan saat kita melakukan get JSON data dari Java Object, disebut JSON serialization. @JsonProperty dapat mengubah visibility dari logical property menggunakan access element saat serialization dan deseralization.
+
+
+**3. Apa kegunaan atribut WebClient?**
+   
+1WebClient berfungsi untuk menginstansiasi sebuah akses poin URL serta mengelola request dan response atas URL tersebut. Selain itu, WebClient juga berfungsi sebagai poin akses utama dari web / HTTP requests.
+
+**4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?**
+   **ResponseEntity** merepresentasikan keseluruhan HTTP response yaitu status code, headers, dan body. Sebagai hasilnya, kita dapat menggunakannya untuk mengkonfigurasi secara lengkap HTTP response. 
+
+**BindingResult** biasanya berisikan informasi mengenai kesalahan, misalkan field yang diperlukan, adanya ketidakcocokan jenis atau kesalahan dalam melakukan pemanggilan method. BindingResult harus muncul tepat setelah objek model yang divalidasi atau Spring akan gagal untuk memvalidasi objek dan mengeluarkan Exception. Dengan kata lain Binding result digunakan sebagai argumen untuk metode validasi dari Validator di dalam Controller.
+
+
+Sumber:
+https://antares.id/id/postman.html#:~:text=Postman%20adalah%20sebuah%20aplikasi%20yang,API%20yang%20telah%20mereka%20buat.
+https://medium.com/@novancimol12/postman-4f181d625fe1
+Jackson Annotations - @JsonIgnoreProperties (tutorialspoint.com)
+WebClient Class (System.Net) | Microsoft Docs
+How to ignore unknown properties while parsing JSON in Java - Jackson @JsonIgnoreProperties Annotation Example - Java Code Geeks - 2021
+Using Spring ResponseEntity to Manipulate the HTTP Response | Baeldung
+
+
+
+---
 ## Tutorial 4
 **1. Jelaskan perbedaan th:include dan th:replace!**
 
