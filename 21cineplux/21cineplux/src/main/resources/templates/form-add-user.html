@@ -26,7 +26,7 @@
               <input type="email" name="email" class="form-control" />
 
               <label>Password</label>
-              <input type="password" name="password" class="form-control" />
+              <input required type="password" name="password" class="form-control" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" title="password harus mengandung angka, huruf besar, huruf kecil, dan simbol serta minimal memiliki 8 karakter"/>
 
               <label>Role</label>
               <select name="role" class="form-control">
