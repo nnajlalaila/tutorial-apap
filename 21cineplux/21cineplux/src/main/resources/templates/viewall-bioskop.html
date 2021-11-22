@@ -58,15 +58,15 @@
             <td th:text="${bioskop.waktuBuka}"></td>
             <td th:text="${bioskop.waktuTutup}"></td>
             <td>
-                <a class="btn btn-primary" th:href="@{/bioskop/view(noBioskop=${bioskop.noBioskop})}">Detail</a>
+                <a class="btn btn-warning" th:href="@{/bioskop/view(noBioskop=${bioskop.noBioskop})}">Detail</a>
 
             </td>
             <td>
-                <a class="btn btn-primary" th:href="@{/bioskop/update/} + ${bioskop.noBioskop}">Update</a>
+                <a class="btn btn-warning" th:href="@{/bioskop/update/} + ${bioskop.noBioskop}">Update</a>
 
             </td>
             <td>
-                <a class="btn btn-primary" th:href="@{/bioskop/delete/} + ${bioskop.noBioskop}">Delete</a>
+                <a class="btn btn-warning" th:href="@{/bioskop/delete/} + ${bioskop.noBioskop}">Delete</a>
 
             </td>
 
@@ -74,7 +74,7 @@
         </tr>
         </tbody>
     </table>
-    <a class="btn btn-primary" href="/">Home</a>
+    <a class="btn btn-warning" href="/">Home</a>
 </div>
 
 </body>

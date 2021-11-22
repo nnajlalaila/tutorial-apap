@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,11 @@
 <nav th:replace="fragments/fragment :: navbar"></nav>
 <div class="d-flex justify-content-center">
     <div class="m-4">
+        <h2 th:text=" 'Hello ' +  ${#httpServletRequest.remoteUser} + '!'"> Login As</h2>
         <h2>Selamat datang di 21Cineplux</h2>
+
+<!--        <section sec:authorize="hasAuthority('ADMIN')">-->
+        <section th:if="${role} == 'ADMIN'">
         <div class="d-flex justify-content-center">
             <a th:href="@{/bioskop/viewall}" class="mx-2 btn btn-warning">Lihat semua bioskop</a>
             <a th:href="@{/bioskop/add}" class="mx-2 btn btn-outline-warning">Tambah bioskop</a>
@@ -21,6 +25,39 @@
             <a th:href="@{/film/viewall}" class="mx-2 btn btn-warning">Lihat semua film</a>
             <a th:href="@{/film/add}" class="mx-2 btn btn-outline-warning">Tambah film</a>
         </div>
+        <div class="my-3 d-flex justify-content-center">
+            <a th:href="@{/user/update-password}" class="mx-2 btn btn-warning">Update Password</a>
+            <a th:href="@{/user/viewall}" class="mx-2 btn btn-outline-warning">Lihat Semua User</a>
+        </div>
+        </section>
+
+        <section th:if="${role} == 'MANAGER'">
+            <div class="d-flex justify-content-center">
+                <a th:href="@{/bioskop/viewall}" class="mx-2 btn btn-warning">Lihat semua bioskop</a>
+                <a th:href="@{/bioskop/add}" class="mx-2 btn btn-outline-warning">Tambah bioskop</a>
+            </div>
+            <div class="my-3 d-flex justify-content-center">
+                <a th:href="@{/film/viewall}" class="mx-2 btn btn-warning">Lihat semua film</a>
+                <a th:href="@{/film/add}" class="mx-2 btn btn-outline-warning">Tambah film</a>
+            </div>
+            <div class="my-3 d-flex justify-content-center">
+                <a th:href="@{/user/update-password}" class="mx-2 btn btn-warning">Update Password</a>
+            </div>
+        </section>
+
+        <section th:if="${role} == 'USER'">
+            <div class="d-flex justify-content-center">
+                <a th:href="@{/bioskop/viewall}" class="mx-2 btn btn-warning">Lihat semua bioskop</a>
+                <a th:href="@{/bioskop/add}" class="mx-2 btn btn-outline-warning">Tambah bioskop</a>
+            </div>
+            <div class="my-3 d-flex justify-content-center">
+                <a th:href="@{/film/viewall}" class="mx-2 btn btn-warning">Lihat semua film</a>
+                <a th:href="@{/film/add}" class="mx-2 btn btn-outline-warning">Tambah film</a>
+            </div>
+            <div class="my-3 d-flex justify-content-center">
+                <a th:href="@{/user/update-password}" class="mx-2 btn btn-warning">Update Password</a>
+            </div>
+        </section>
     </div>
 </div>
 </body>
