@@ -33,7 +33,15 @@ public class UserController {
     }
 
     @PostMapping(value = "/add")
-    private String addUserSubmit(@ModelAttribute UserModel user, Model model) {
+    private String addUserSubmit(@ModelAttribute UserModel user, Model model,  RedirectAttributes attributes) {
+        List<UserModel> allUser = userService.getListUser();
+        for (UserModel userLama :allUser
+             ) {
+            if (user.getEmail().equals(userLama.getEmail())){
+                attributes.addFlashAttribute("notif", "Email yang anda masukkan sudah digunakan");
+                return "redirect:/user/add";
+            }
+        }
         userService.addUser (user);
         model.addAttribute("user", user);
         return "redirect:/";

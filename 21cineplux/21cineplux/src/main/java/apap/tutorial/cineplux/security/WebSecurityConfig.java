@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 //        auth.inMemoryAuthentication()
 //                .passwordEncoder(encoder())
 //                .withUser("nontonfilm").password(encoder().encode("21cineplux"))
-//                .roles("USER");
+//                .roles("ADMIN");
 //    }
 
     @Autowired
