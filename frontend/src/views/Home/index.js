@@ -53,16 +53,16 @@ export default class Home extends React.Component {
   };
 
   handleDeleteItemToCart = (item) => {
-    const newItems = [...this.state.cartItems];
-    const newItem = { ...item };
-    const targetInd = newItems.findIndex((it) => it.id === newItem.id);
+    const existItems = [...this.state.cartItems];
+    const deleteItem = { ...item };
+    const targetInd = existItems.findIndex((it) => it.id === deleteItem.id);
     if (targetInd >= 0) {
-      newItem.inCart = false;
-      newItems.splice(targetInd,1);
-      this.updateShopItem(newItem, false);
+      deleteItem.inCart = false;
+      existItems.splice(targetInd,1);
+      this.updateShopItem(deleteItem, false);
       this.increaseBalance(item.price)
     }
-    this.setState({ cartItems: newItems });
+    this.setState({ cartItems: existItems });
   };
  
   updateShopItem = (item, inCart) => {

@@ -34,16 +34,16 @@ function App() {
 
   function decreaseBalance(price){
     if (balance - price >= 0) {
-        setBalance(balance - price)
+        setBalance(balance - price);
         return true;
     } else {
-        alert("Balance not sufficient!")
+        alert("Balance not sufficient!");
         return false;
     }
   }
 
   function increaseBalance(price){
-    setBalance(balance + price)
+    setBalance(balance + price);
   }
 
   function handleAddItemToCart(item) {
@@ -62,16 +62,16 @@ function App() {
   }
 
   function handleDeleteItemToCart(item) {
-    const newItems = [...cartItems];
-    const newItem = { ...item };
-    const targetInd = newItems.findIndex((it) => it.id === newItem.id);
+    const existItems = [...cartItems];
+    const deleteItem = { ...item };
+    const targetInd = existItems.findIndex((it) => it.id === deleteItem.id);
     if (targetInd >= 0) {
-      newItem.inCart = false;
-      newItems.splice(targetInd,1);
-      updateShopItem(newItem, false);
+      deleteItem.inCart = false;
+      existItems.splice(targetInd,1);
+      updateShopItem(deleteItem, false);
       increaseBalance(item.price)
     }
-    setCartItems(newItems);
+    setCartItems(existItems);
   }
   return (
     <div className="container-fluid">
