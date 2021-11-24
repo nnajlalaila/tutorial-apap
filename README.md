@@ -3,7 +3,7 @@
 * **Najla Laila Muharram** - *1906399612* - *C*
 
 ---
-## Tutorial 6
+## Tutorial 7
 **1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.** 
 
 Latihan Nomor 1
@@ -50,7 +50,7 @@ https://id.reactjs.org/docs/hooks-state.html
 https://hasanmubarok.medium.com/mengenal-element-components-dan-props-di-react-bbff544dd201
 
 ---
-## Tutorial 5
+## Tutorial 6
 
 **1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi?**
 
