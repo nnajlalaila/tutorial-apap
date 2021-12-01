@@ -3,7 +3,54 @@
 * **Najla Laila Muharram** - *1906399612* - *C*
 
 ---
-## Tutorial 5
+## Tutorial 7
+**1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.** 
+
+Latihan Nomor 1
+
+
+![](https://i.ibb.co/FbtXQgc/nomor1.jpg)
+
+Saya membuat function yang akan menghandle delete barang dari keranjang. Pada function tersebut saya mengambil semua barang yang ada di keranjang dan juga mengambil objek barang yang akan dihapus. Kemudian saya mengambil index dari barang yang akan dihapus dari existItems. Saya melakukan pengecekan validasi terlebih dahulu apakah barang dengan index tersebut tersedia di keranjang (jika tersedia maka nilainya akan lebih dari 0). Setelah memastikan jika barang tersebut ada di keranjang lalu mengubah status barang tersebut menjadi tidak dalam keranjang dengan menset boolean menjadi false. Kemudian menghapus item tersebut dari list barang dalam keranjang dengan menggunakan splice dan mengupdate kembali isi dari keranjang. 
+
+![](https://i.ibb.co/PwvfXcT/nomor1lagi.jpg)
+
+Setelah itu, saya menambahkan kode berikut. Sehingga, saat user menekan tombol hapus pada interface akan menjalankan function seperti yang saya jelaskan di atas. 
+
+Latihan Nomor 2
+
+![](https://i.ibb.co/LRHbbF8/nomor2.jpg)
+
+Yang saya lakukan untuk soal latihan2 ini saya membuat dua function yaitu increaseBalance dan decreaseBalance. Inti dari function decreaseBalance yaitu mengurangi balance dengan harga dari barang yang di add ke keranjang, maka dari itu function ini dipanggil saat melakukan add barang ke keranjang yaitu setelah menambahkan suatu barang ke keranjang (Dapat dilihat pada gambar pertama). Sedangkan untuk function increaseBalance saya hanya menambahkan balance dengan harga barang yang baru dihapus dari keranjang, maka saya memanggil function ini setelah menghapus suatu barang dari keranjang. 
+
+Nomor 3 
+
+![](https://i.ibb.co/LRHbbF8/nomor2.jpg)
+
+![](https://i.ibb.co/pQszYwf/nomor3.jpg)
+
+Saya melakukan validasi sebelum user melakukan add barang ke dalam keranjang dengan terlebih dahulu mengecek apakah balance jika dikurangi dengan harga barang yang ingin ditambah masih lebih besar sama dengan nol, jika ia maka saya melanjutkannya dengan melakukan pengurangan balance dikurangi dengan harga barang kemudian mereturn true agar barang yang ingin tambahkan user masuk ke dalam keranjang. Sedangkan, jika balance dikurangi dengan harga barang memiliki nilai kurang dari nol, maka akan masuk ke bagian else maka akan menampilkan alert seperti yang diminta pada soal dan mereturn boolean false sehingga tidak akan dilakukan penambahan barang tersebut ke dalam keranjang. 
+
+**2. Menurut pemahaman kamu selama pengerjaan tutorial ini, apa perbedaan antara state dan props?** 
+Props merupakan singkatan dari property yang setara dengan argumen pada sebuah function di bahasa pemrograman seperti java atau python, props juga mirip dengan attribute pada tag HTML. Props digunakan untuk melakukan komunikasi data antar component dari parent component ke child component.Sifat dari props ini read-only dan tidak dapat dimodifikasi.
+
+Sedangkan state adalah data private yang dimiliki component yang terus berubah sesuai dengan perilaku program. Data ini hanya tersedia untuk component tersebut dan tidak bisa di akses dari component lain.Berbeda dengan props yang valuenya dilempar dari component lain, state justru dapat menyimpan dan mengubah datanya sendiri dari dalam.
+
+**3. Menurut kamu, apakah sebaiknya kita menggunakan component (e.g. List, Item) dalam React? sebutkan alasannya.** 
+Menurut saya sebaiknya kira menggunakan component karena component bersifat reusable. Contohnya adalah pada tutorial kali ini dimana ada component List dan Item yang bisa dipanggil ulang untuk menampilkan seluruh list yang ada di file json sekaligus menampilkan seluruh barang di chart. Kode ini bisa kita panggil berkali-kali sesuai denga kebutuhan kita. 
+
+**4. Apa perbedaan class component dan functional component?** 
+Functional components lebih ringkas struktur kodenya. Hal ini sangat efektif karena kita tidak perlu mengetik terlalu panjang. Namun, terdapat perbedaan yang cukup signifikan antara class component dan function component, yaitu **functional component** hanya bisa menggunakan props itu sebabnya function component disebut stateless component atau biasa digunakan juga sebagai UI Component (komponen yang menangani tampilan). Sedangkan Class component dapat menggunakan state dan props.
+
+**5. Dalam react, apakah perbedaan component dan element?**
+Elemen adalah blok bangunan terkecil di React, yang menggambarkan apa yang akan dilihat oleh user di layar mereka. Secara sederhana, elemen dapat didefinisikan sebagai representasi virtual dari DOM. Sedangkan, component pada React secara konsep sama seperti function pada JavaScript, perbedaannya adalah jika function menerima sebarang input yang disebut parameter atau argumen dan me-return sebuah nilai, component menerima input yang disebut props dan me-return React Element yang menggambarkan apa yang akan ditampilkan di layar. Component memungkinkan kita untuk membuat UI yang independent, isolated, dan reusable sehingga mengurangi repetisi kode.
+
+Referensi :
+https://id.reactjs.org/docs/hooks-state.html
+https://hasanmubarok.medium.com/mengenal-element-components-dan-props-di-react-bbff544dd201
+
+---
+## Tutorial 6
 
 **1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi?**
 
