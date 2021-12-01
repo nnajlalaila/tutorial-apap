@@ -1,6 +1,38 @@
 # Tutorial APAP
 ## Authors
 * **Najla Laila Muharram** - *1906399612* - *C*
+---
+## Tutorial 8
+**1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah - langkah tersebut?** 
+> Saya menambahkan potongan kode seperti yang terlihat di gambar berikut. Dengan adanya potongan kode tersebut saya melakukan set default terhadap atribut-atribut yang ada. Sehingga seakan-akan form tersebut kosong kembali.
+
+![](https://i.ibb.co/jLCVPsB/readme1-BENER.png)
+
+**2. Jelaskan fungsi dari async dan await!** 
+> Async berfungsi untuk secara otomatis mengembalikan sebuah return value berupa objek dengan tipe promise atau mengembalikan penolakan  dengan uncaught errors. Async merupakan salah satu cara untuk mengatasi masalah asynchronous pada Javascript.
+
+> Await hanya dapat digunakan pada fungsi yang menggunakan async. Await berfungsi untuk memberi tahu program untuk keluar sementara dari fungsi async dan melanjutkan programnya ketika tugas yang diberikan telah selesai
+
+**3. Masukkan jawaban dari Screenshot yang diperintahkan di halaman 9 pada Component Lifecycle pada pertanyaan ini.**
+
+![](https://i.ibb.co/c6RbDMq/readme3.jpg)
+
+![](https://i.ibb.co/9h05Q0k/readme3lagi.jpg)
+
+
+**4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount. Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja yang biasanya menggunakan lifecycle method tersebut”.**
+
+> componentDidMount merupakan salah satu component lifecycle yang digunakan untuk melakukan pengambilan data dan menandakan tahap akhir dari mounting lifecycle, function ini dipanggil setelah HTML yang dirender telah selesai melakukan loading. componentDidMount ini bisa digunakan untuk use case seperti untuk mengambil API dari website lain untuk di render. 
+
+> shouldComponentUpdate digunakan untuk menentukan apakah perubahan yang terjadi di component akan ditampilkan atau tidak. Dengan kata lain, memberi tahu apakah komponen harus diperbarui atau tidak. Return value boolean true berarti program akan merender ulang component yang telah diubah yang secara otomatis akan terupdate dan boolean false untuk component yang tidak merender ulang artinya tidak ada component yang diubah dan dengan menerima parameter nextProps dan nextState. Function ini akan dijalankan setelah props atau state dari component tersebut mengalami perubahan sebelum proses rendering dimulai.
+Function ini digunakan ketika ingin mengubah komponen dan melakukan rendering kembali pada setiap state yang berubah.
+
+> componentDidUpdate merupakan salah satu component Lifecycle yang biasanya digunakan pada saat melakukan interaksi dengan environment non-React seperti browser atau API. Fungsi ini akan dijalankan Saat suatu instance di dalam suatu komponen melakukan update dan ketika HTML yang di render telah selesai melakukan loading. componentDidUpdate ini bisa digunakan untuk  use case seperti melakukan update pada komponen.
+
+> componentWillReceiveProps memungkinkan perubahan state berdasar pada props yang sekarang dan props baru, dengan begitu kita dapat mengetahui apakah terdapat perubahan pada props atau tidak setelah dilakukan perubahan, tanpa melakukan render kembali. Function ini dapat memberi tahu React bahwa akan ada perubahan pada komponen yang memiliki props .Function ini akan dijalankan ketika terjadi perubahan pada props sebelum component di render. Function ini hanya akan dipanggil saat komponen akan menerima props.componentWillReceiveProps ini bisa digunakan untuk  use case seperti melakukan reset state.
+
+> componentWillUnmount berguna ketika ada action yang berhubungan dengan cleanup seperti melakukan pembersihan timer yang tidak valid, membatalkan permintaan jaringan, atau membersihkan langganan apa pun yang dibuat di componentDidMount. Oleh karena itu, fungsi ini akan dijalankan ketika ada component yang telah dihapus dari DOM, misalnya ketika DOM dirender ulang tanpa komponen atau pengguna berganti website atau menutup browsernya. componentWillUnmount ni bisa digunakan untuk use case seperti menghapus interval waktu dari suatu fungsi yang sedang berjalan.
+
 
 ---
 ## Tutorial 7
