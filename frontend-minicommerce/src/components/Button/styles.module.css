@@ -5,17 +5,48 @@
     color: white;
     cursor: pointer;
     font-weight: bold;
-  }
-  .button:hover {
-    opacity: 0.9;
-  }
-  .primary {
-    background-color: #346cce;
-  }
-  .success {
-    background-color: #2fb851;
-  }
-  .danger {
-    background-color: #ce3434;
-  }
+    margin-left: 8px;
+}
+.button:hover {
+  opacity: 0.9;
+}
+.primary {
+  background-color: #346cce;
+}
+.success {
+  background-color: #2fb851;
+}
+.danger {
+  background-color: #ce3434;
+}
+
+.button-custom {
+	font-size: 12px;
+	background-color: #ce3434;
+	height: 30px;
+	margin-top: -800px;
+	margin-left: 100px;
+}
+
+.checkout {
+	background-color: #346cce;
+	position: absolute;
+	top: 40px;
+	left: 1100px;
+}
+
+.back {
+	background-color: #346cce;
+	position: absolute;
+	top: 40px;
+	left: 20px;
+  right: 800px;
+}
+
+.danger-outline {
+	border-color: #ce3434;;
+	color: #ce3434;
+	background-color: white;
+	margin-left: 8px;
+}
   

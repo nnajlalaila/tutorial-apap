@@ -6,9 +6,15 @@
 .itemList {
 margin: 36px;
 }
+
 .title {
 text-align: center;
 font-size: 32px;
+}
+
+.info {
+    text-align: center;
+    font-size: 12px;
 }
 
 .hotelList {

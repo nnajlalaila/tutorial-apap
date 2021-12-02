@@ -3,7 +3,7 @@ import classes from "./styles.module.css";
 import Button from "../../components/Button";
 
 const Item = (props) => {
-    const { id, title, price, description, category, quantity, handleEdit, handleDelete } = props;
+    const { id, title, price, description, category, quantity, sold, handleEdit, handleDelete , handleAddToCart, handleAddQuantity} = props;
     return (
         <div className={classes.item}>
             <h3>{`ID ${id}`}</h3>
@@ -12,12 +12,24 @@ const Item = (props) => {
             <p>{`Deskripsi: ${description}`}</p>
             <p>{`Kategori: ${category}`}</p>
             <p>{`stok: ${quantity}`}</p>
-       
-        <Button action={handleEdit}>
-        Edit
-        </Button>
-       </div>
-        
+
+            <Button action={handleEdit} variant="primary">
+                Edit
+            </Button>
+            <Button action={handleDelete} variant="danger">
+                Delete
+            </Button>
+            <form>
+                <input
+                    className={classes.textField} type="number" placeholder="Mau beli berapa"
+                    name="sold" 
+                    onChange={handleAddQuantity} />
+            </form>
+            <Button action={handleAddToCart} variant="button-custom">
+                Add to Cart
+            </Button>
+        </div>
+
     );
 };
 export default Item;
