@@ -20,20 +20,35 @@
   background-color: #ce3434;
 }
 
-.checkout {
+
+.add{
 	background-color: #346cce;
-	position: absolute;
-	top: 40px;
-	left: 1100px;
+  height: 33px;
+  margin: 16px 0;
+  left: 16px;
 }
 
 .back {
-	background-color: #346cce;
-	position: absolute;
-	top: 40px;
-	left: 20px;
-  right: 800px;
-}
+  background-color: #346cce;
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  background-color: #346cce;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ .checkout {
+  background-color: #346cce;
+  position: absolute;
+  top: 30px;
+  left: 1100px;
+  background-color: #346cce;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+ }
 
 .danger-outline {
 	border-color: #ce3434;

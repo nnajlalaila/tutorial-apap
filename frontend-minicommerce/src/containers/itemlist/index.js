@@ -5,11 +5,13 @@ import APIConfig from "../../api/APIConfig";
 import Button from "../../components/Button";
 import Modal from "../../components/Modal";
 import SearchBar from "../../components/SearchBar";
-import CartItem from "../../components/CartItem";
+import CartItem from "../../components/CartItems";
 import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Fab } from "@material-ui/core";
-import ViewStreamIcon from '@mui/icons-material/ViewStream';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+
 
 class ItemList extends Component {
     constructor(props) {
@@ -203,6 +205,7 @@ class ItemList extends Component {
     }
 
 
+
     async loadGetCartData() {
         try {
             const { data } = await APIConfig.get("/cart");
@@ -242,13 +245,13 @@ class ItemList extends Component {
 
                         <div className="col-sm">
                             
-                            <Button action={this.handleToggle} variant="back" >
-                                Back
+                            <Button action={this.handleToggle} variant="back">
+                                <KeyboardBackspaceIcon />Back
                             </Button>
                             <h1 className={classes.title}>My Cart</h1>
                             {this.state.cartItems.length > 0 ? (
                                 <Button action={this.handleDeleteAll} variant="checkout" >
-                                    Checkout
+                                    <PointOfSaleIcon /> Checkout
                                 </Button>) : null}
                                 {this.state.cartItems.length === 0 ? (
                                 <div className={classes.info}>

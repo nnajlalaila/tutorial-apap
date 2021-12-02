@@ -19,20 +19,20 @@ const Item = (props) => {
             <Button action={handleDelete} variant="danger">
                 Delete
             </Button>
-            
-            <div>
-            <form>
+
+         
+           <div className={classes.flex}>
+           <form>
                 <input
                     className={classes.textField} type="number" placeholder="Mau beli berapa"
                     name="sold" 
                     onChange={handleAddQuantity}/>
-
-            </form>
-            <Button action={handleAddToCart} variant="primary">
-                        Add to Cart
-            </Button>
-                   
-            </div>
+             </form>
+              
+                    <Button action={handleAddToCart} variant="add">
+                            Add to Cart
+                    </Button>
+           </div>
           
            
         </div>
