@@ -20,14 +20,6 @@
   background-color: #ce3434;
 }
 
-.button-custom {
-	font-size: 12px;
-	background-color: #ce3434;
-	height: 30px;
-	margin-top: -800px;
-	margin-left: 100px;
-}
-
 .checkout {
 	background-color: #346cce;
 	position: absolute;
@@ -44,7 +36,7 @@
 }
 
 .danger-outline {
-	border-color: #ce3434;;
+	border-color: #ce3434;
 	color: #ce3434;
 	background-color: white;
 	margin-left: 8px;

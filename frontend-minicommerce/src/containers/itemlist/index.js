@@ -179,7 +179,6 @@ class ItemList extends Component {
     }
 
     async handleSubmitAddItem(item) {
-        console.log("HELLO DI HANDLE SUBMIT ADD ITEM")
         try {
             if (item.quantity >= this.state.sold) {
                 const data = {
@@ -201,20 +200,6 @@ class ItemList extends Component {
 
             console.log(error);
         }
-    }
-
-    decreaseQuantity = (sold) => {
-        if (this.state.quantity - sold >= 0) {
-            this.state.quantity -= sold;
-            return true;
-        } else {
-            alert("Stok tidak cukup")
-            return false;
-        }
-    }
-
-    increaseQuantity = (sold) => {
-        this.state.quantity += sold;
     }
 
 
@@ -253,7 +238,7 @@ class ItemList extends Component {
         return (
             <div className="container pt-3">
                 <div className="row mt-3">
-                    {this.state.cartHidden ? (
+                    {!this.state.cartHidden ? (
 
                         <div className="col-sm">
                             

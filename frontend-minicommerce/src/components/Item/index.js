@@ -19,15 +19,22 @@ const Item = (props) => {
             <Button action={handleDelete} variant="danger">
                 Delete
             </Button>
+            
+            <div>
             <form>
                 <input
                     className={classes.textField} type="number" placeholder="Mau beli berapa"
                     name="sold" 
-                    onChange={handleAddQuantity} />
+                    onChange={handleAddQuantity}/>
+
             </form>
-            <Button action={handleAddToCart} variant="button-custom">
-                Add to Cart
+            <Button action={handleAddToCart} variant="primary">
+                        Add to Cart
             </Button>
+                   
+            </div>
+          
+           
         </div>
 
     );
