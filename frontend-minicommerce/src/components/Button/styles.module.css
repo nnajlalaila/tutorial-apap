@@ -1,0 +1,59 @@
+.button {
+    border-radius: 4px;
+    padding: 8px 16px;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 8px;
+}
+.button:hover {
+  opacity: 0.9;
+}
+.primary {
+  background-color: #346cce;
+}
+.success {
+  background-color: #2fb851;
+}
+.danger {
+  background-color: #ce3434;
+}
+
+
+.add{
+	background-color: #346cce;
+  height: 33px;
+  margin: 16px 0;
+  left: 16px;
+}
+
+.back {
+  background-color: #346cce;
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  background-color: #346cce;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ .checkout {
+  background-color: #346cce;
+  position: absolute;
+  top: 30px;
+  left: 1100px;
+  background-color: #346cce;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+ }
+
+.danger-outline {
+	border-color: #ce3434;
+	color: #ce3434;
+	background-color: white;
+	margin-left: 8px;
+}
+  
